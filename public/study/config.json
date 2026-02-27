@@ -1,0 +1,300 @@
+{
+  "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.3.2/src/parser/StudyConfigSchema.json",
+  "studyMetadata": {
+    "title": "Stasticial Study",
+    "version": "pilot",
+    "authors": ["Jiarong Feng", "Karen Bonilla"],
+    "date": "2026-02-16",
+    "description": "A study about correlation and slope.",
+    "organizations": ["WPI"]
+  },
+  "uiConfig": {
+    "contactEmail": "contact@revisit.dev",
+    "helpTextPath": "color-exp2/assets/help.md",
+    "logoPath": "revisitAssets/revisitLogoSquare.svg",
+    "withProgressBar": true,
+    "autoDownloadStudy": false,
+    "withSidebar": false,
+    "windowEventDebounceTime": 200
+  },
+  "baseComponents": {
+    "ishiharaPlate": {
+      "type": "react-component",
+      "path": "color-exp2/assets/IshiharaPlate.tsx",
+      "nextButtonLocation": "belowStimulus",
+      "nextOnEnter": true,
+      "response": [
+        {
+          "id": "ishiharaResponse",
+          "prompt": "Ishihara plate response",
+          "location": "sidebar",
+          "type": "reactive"
+        }
+      ]
+    }
+  },
+  "components": {
+    "consent": {
+      "type": "markdown",
+      "path": "study/assets/consent.md",
+      "style": {
+        "width": "800px",
+        "margin": "0 auto"
+      },
+      "nextButtonText": "Continue",
+      "response": [
+        {
+          "id": "accept",
+          "prompt": "Are you ready to continue?",
+          "requiredValue": "Accept",
+          "location": "belowStimulus",
+          "style": {
+            "width": "800px",
+            "margin": "0 auto"
+          },
+          "type": "radio",
+          "options": ["Decline", "Accept"]
+        }
+      ]
+    },
+    "pre questions": {
+      "type": "questionnaire",
+      "response": [
+        {
+          "id": "q-correlation",
+          "prompt": "In your own words, please describe what is correlation:",
+          "location": "aboveStimulus",
+          "type": "longText",
+          "placeholder": "Enter your answer here",
+          "style": {
+            "width": "800px",
+            "margin": "3em 0"
+          }
+        },
+        {
+          "id": "q-slope",
+          "prompt": "In your own words, please describe what is slope:",
+          "location": "aboveStimulus",
+          "type": "longText",
+          "placeholder": "Enter your answer here",
+          "style": {
+            "width": "800px",
+            "margin": "3em 0"
+          }
+        },
+        {
+          "id": "q-class-taken",
+          "prompt": "Have you ever taken a statistics class?",
+          "location": "aboveStimulus",
+          "type": "radio",
+          "options": ["Yes", "No"],
+          "style": {
+            "width": "800px",
+            "margin": "3em 0"
+          }
+        },
+        {
+          "id": "q-grade",
+          "prompt": "If yes, what grade did you get in the class?",
+          "location": "aboveStimulus",
+          "type": "radio",
+          "options": ["A", "B", "C", "D", "F"],
+          "style": {
+            "width": "800px",
+            "margin": "3em 0"
+          },
+          "required": false
+        }
+      ]
+    },
+    "control-video": {
+      "type": "video",
+      "path": "study/assets/slope_and_correlation.mp4",
+      "forceCompletion": true,
+      "response": []
+    },
+    "instruction": {
+      "type": "markdown",
+      "path": "study/assets/instruction.md",
+      "style": {
+        "width": "800px",
+        "margin": "0 auto"
+      },
+      "nextButtonText": "Continue",
+      "response": []
+    },
+    "post questions": {
+      "type": "questionnaire",
+      "response": [
+        {
+          "id": "q-correlation-post",
+          "prompt": "After watching the video, in your own words, please describe what is correlation:",
+          "location": "aboveStimulus",
+          "type": "longText",
+          "placeholder": "Enter your answer here",
+          "style": {
+            "width": "800px",
+            "margin": "3em 0"
+          }
+        },
+        {
+          "id": "q-slope-post",
+          "prompt": "After watching the video, in your own words, please describe what is slope:",
+          "location": "aboveStimulus",
+          "type": "longText",
+          "placeholder": "Enter your answer here",
+          "style": {
+            "width": "800px",
+            "margin": "3em 0"
+          }
+        },
+        {
+          "id": "q-same",
+          "prompt": "Please list as many ways slope and correlation are the same as you can think of.",
+          "location": "aboveStimulus",
+          "type": "longText",
+          "placeholder": "Enter your answer here",
+          "style": {
+            "width": "800px",
+            "margin": "3em 0"
+          }
+        },
+        {
+          "id": "q-different",
+          "prompt": "Please list as many ways slope and correlation are different as you can think of. ",
+          "location": "aboveStimulus",
+          "type": "longText",
+          "placeholder": "Enter your answer here",
+          "style": {
+            "width": "800px",
+            "margin": "3em 0"
+          }
+        },
+        {
+          "id": "q-ppt-questions",
+          "prompt": "We are interested in how your watching experience may have sparked additional questions about correlation and slope. Please describe questions you have now regarding correlation and slope. ",
+          "location": "aboveStimulus",
+          "type": "longText",
+          "placeholder": "Enter your answer here",
+          "style": {
+            "width": "800px",
+            "margin": "3em 0"
+          },
+          "required": false
+        }
+      ]
+    },
+    "interest": {
+      "type": "markdown",
+      "path": "study/assets/interest.md",
+      "style": {
+        "width": "800px",
+        "margin": "0 auto"
+      },
+      "nextButtonText": "Continue",
+      "response": []
+    },
+    "feedback": {
+      "type": "questionnaire",
+      "response": [
+        {
+          "id": "q-fun",
+          "prompt": "It was fun to watch the video.",
+          "location": "aboveStimulus",
+          "type": "likert",
+          "numItems": 5,
+          "leftLabel": "Strongly Disagree",
+          "rightLabel": "Strongly Agree",
+          "style": {
+            "width": "800px",
+            "margin": "3em 0"
+          }
+        },
+        {
+          "id": "q-enjoyed",
+          "prompt": "I've enjoyed watching the video.",
+          "location": "aboveStimulus",
+          "type": "likert",
+          "numItems": 5,
+          "leftLabel": "Strongly Disagree",
+          "rightLabel": "Strongly Agree",
+          "style": {
+            "width": "800px",
+            "margin": "3em 0"
+          }
+        },
+        {
+          "id": "q-enjoyed-learning",
+          "prompt": "I've enjoyed learning new things.",
+          "location": "aboveStimulus",
+          "type": "likert",
+          "numItems": 5,
+          "leftLabel": "Strongly Disagree",
+          "rightLabel": "Strongly Agree",
+          "style": {
+            "width": "800px",
+            "margin": "3em 0"
+          }
+        },
+        {
+          "id": "q-video",
+          "prompt": "The video was informative.",
+          "location": "aboveStimulus",
+          "type": "likert",
+          "numItems": 5,
+          "leftLabel": "Strongly Disagree",
+          "rightLabel": "Strongly Agree",
+          "style": {
+            "width": "800px",
+            "margin": "3em 0"
+          }
+        },
+        {
+          "id": "q-video-2",
+          "prompt": "The video was engaging.",
+          "location": "aboveStimulus",
+          "type": "likert",
+          "numItems": 5,
+          "leftLabel": "Strongly Disagree",
+          "rightLabel": "Strongly Agree",
+          "style": {
+            "width": "800px",
+            "margin": "3em 0"
+          }
+        },
+        {
+          "id": "q-learning-experience",
+          "prompt": "It's been fun to learn about statistics this way.",
+          "location": "aboveStimulus",
+          "type": "likert",
+          "numItems": 5,
+          "leftLabel": "Strongly Disagree",
+          "rightLabel": "Strongly Agree",
+          "style": {
+            "width": "800px",
+            "margin": "3em 0"
+          }
+        }
+      ]
+    }
+  },
+
+  "sequence": {
+    "order": "fixed",
+    "components": [
+      {
+        "id": "pilot-sequence",
+        "order": "fixed",
+        "components": [
+          "consent",
+          "pre questions",
+          "control-video",
+          "instruction",
+          "post questions",
+          "interest",
+          "feedback"
+        ]
+      }
+    ]
+  }
+}
